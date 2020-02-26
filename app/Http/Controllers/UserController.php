@@ -43,12 +43,7 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //validate
-        $this->validate($request,[
-            'name' =>'required',
-            'email' =>'required|email|unique:users,email',
-            'password' =>'required|same:confirm-password',
-            'roles' =>'required',
-        ]);
+        $this->getValidateUser($request);
 
         $data = $request->all();
         $data['password'] =  Hash::make($data['password']);
@@ -99,12 +94,8 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
         //validate
-        $this->validate($request,[
-            'name' =>'required',
-            'email' =>'required|email|unique:users,email,' .$id,
-            'password' =>'same:confirm-password',
-            'roles' =>'required',
-        ]);
+
+        $this->getValidateUser($request);
 
         $input = $request->all();
 
@@ -122,7 +113,7 @@ class UserController extends Controller
 
         $user->update($input);
         DB::table('model_has_roles')->where('model_id',$id)->delete();
-        
+
         $user->assignRole($request->input('roles'));
 
         return  redirect()->route('users.index')->with('success', 'User Updated Successfully');
@@ -139,4 +130,25 @@ class UserController extends Controller
         User::findOrFail($id)->delete();
         return  redirect()->route('users.index')->with('success', 'User Deleted Successfully');
     }
+
+    /**
+     * @param Request $request
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function getValidateUser(Request $request): void
+    {
+        $this->validate($request, [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|same:confirm-password',
+            'roles' => 'required',
+        ]);
+    }
 }
+
+//$this->validate($request,[
+//    'name' =>'required',
+//    'email' =>'required|email|unique:users,email',
+//    'password' =>'required|same:confirm-password',
+//    'roles' =>'required',
+//]);

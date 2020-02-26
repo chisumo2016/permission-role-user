@@ -41,10 +41,7 @@ class RoleController extends Controller
     public function store(Request $request)
     {
 
-        $this->validate($request,[
-            'name'       => 'required|unique:roles',
-            'permission' =>'required'
-        ]);
+        $this->getValidate($request);
 
         $role = Role::create(['name' => $request->input('name')]);
 
@@ -98,10 +95,12 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
+        /*$this->validate($request,[
             'name'       => 'required|unique:roles,name',
             'permission' =>'required'
-        ]);
+        ]);*/
+
+        $this->getValidate($request);
 
         $role = Role::findOrFail($id);
         $role->name = $request->input('name');
@@ -123,5 +122,17 @@ class RoleController extends Controller
         DB::table('roles')->where('id',$id)->delete();
         return  redirect()->route('roles.index')->with('success','Role deleted successfully');
 
+    }
+
+    /**
+     * @param Request $request
+     * @throws \Illuminate\Validation\ValidationException
+     */
+    protected function getValidate(Request $request): void
+    {
+        $this->validate($request, [
+            'name' => 'required|unique:roles',
+            'permission' => 'required'
+        ]);
     }
 }

@@ -72,15 +72,9 @@ class ProductController extends Controller
     {
 //        dd($request->all());
 
-        request()->validate([
-            'name'      => 'required',
-            'details'    => 'required',
-        ]);
+        $this->getValidate();
 
-
-          Product::create($request->all());
-
-
+        Product::create($request->all());
 
         return  redirect()->route('products.index')->with('success','Product Created Successfully');
 
@@ -118,10 +112,7 @@ class ProductController extends Controller
      */
     public function update(Request $request, Product $product)
     {
-        request()->validate([
-            'name'      => 'required',
-            'details'    => 'required',
-        ]);
+        $this->getValidate();
 
         $product->update($request->all());
         return  redirect()->route('products.index')->with('success','Product updated successfully');
@@ -138,5 +129,13 @@ class ProductController extends Controller
         $product->delete();
 
         return  redirect()->route('products.index')->with('success','Product deleted successfully');
+    }
+
+    protected function getValidate(): void
+    {
+        request()->validate([
+            'name' => 'required',
+            'details' => 'required',
+        ]);
     }
 }
