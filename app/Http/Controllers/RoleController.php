@@ -40,13 +40,16 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+
         $this->validate($request,[
-            'name'       => 'required|unique:roles, name',
+            'name'       => 'required|unique:roles',
             'permission' =>'required'
         ]);
 
         $role = Role::create(['name' => $request->input('name')]);
-        $role->syncPermission($request->input('permission'));
+
+        $role->syncPermissions($request->input('permission'));
+
 
         return  redirect()->route('roles.index')->with('success','Role Created Successfully');
     }
@@ -61,10 +64,11 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
 
-        $rolePermission = Permission::join("role_has_permission", "role_has_permissions.permission_id" ,"=" , "permission.id")
-                    ->where("role_has_permissions.role_id",$id);
+        $rolePermissions = Permission::join("role_has_permissions", "role_has_permissions.permission_id","=","permissions.id")
+                                     ->where("role_has_permissions.role_id",$id)->get();
 
-        return view('roles.show',compact('role', 'rolePermission'));
+
+        return view('roles.show',compact('role', 'rolePermissions'));
     }
 
     /**
@@ -77,10 +81,11 @@ class RoleController extends Controller
     {
         $role = Role::findOrFail($id);
         $permission = Permission::get();
-        $rolePermission = DB::join("role_has_permission")->where("role_has_permissions.role_id",$id)
-                           ->pluck('role_has_permissions.permission_id','role_has_permissions.permissions_id')->all();
 
-        return view('roles.show',compact('role', 'permission', 'rolePermission'));
+        $rolePermissions = DB::table("role_has_permissions")->where("role_has_permissions.role_id",$id)
+                           ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')->all();
+
+        return view('roles.edit',compact('role', 'permission', 'rolePermissions'));
 
     }
 
@@ -94,7 +99,7 @@ class RoleController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request,[
-            'name'       => 'required|unique:roles, name',
+            'name'       => 'required|unique:roles,name',
             'permission' =>'required'
         ]);
 

@@ -46,8 +46,9 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::latest()->paginate(5);
-        return  view('users.index', compact('products'))->with('i',(request()->input('page',1) -1) * 5);
+        $products = Product::all();
+
+        return  view('products.index', compact('products'))->with('i',(request()->input('page',1) -1) * 5);
 
     }
 
@@ -69,12 +70,17 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
+//        dd($request->all());
+
         request()->validate([
             'name'      => 'required',
-            'detail'    => 'required',
+            'details'    => 'required',
         ]);
 
-        Product::created($request->all());
+
+          Product::create($request->all());
+
+
 
         return  redirect()->route('products.index')->with('success','Product Created Successfully');
 
@@ -100,7 +106,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        return  view('products.show', compact('product'));
+        return  view('products.edit', compact('product'));
     }
 
     /**
@@ -114,7 +120,7 @@ class ProductController extends Controller
     {
         request()->validate([
             'name'      => 'required',
-            'detail'    => 'required',
+            'details'    => 'required',
         ]);
 
         $product->update($request->all());

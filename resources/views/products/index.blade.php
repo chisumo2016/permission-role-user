@@ -60,7 +60,7 @@
 
                     <td>{{ $product->name }}</td>
 
-                    <td>{{ $product->detail }}</td>
+                    <td>{{ $product->details }}</td>
 
                     <td>
 
@@ -96,7 +96,7 @@
 
     </table>
 
-    {!! $products->links() !!}
+{{--    {!! $products->links() !!}--}}
 
 </div>
 @endsection

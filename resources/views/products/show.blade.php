@@ -44,7 +44,7 @@
 
                 <strong>Details:</strong>
 
-                {{ $product->detail }}
+                {{ $product->details }}
 
             </div>
 

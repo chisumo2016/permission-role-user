@@ -72,7 +72,7 @@
 
                     <strong>Detail:</strong>
 
-                    <textarea class="form-control" style="height:150px" name="detail" placeholder="Detail">{{ $product->detail }}</textarea>
+                    <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $product->details }}</textarea>
 
                 </div>
 
