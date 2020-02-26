@@ -55,7 +55,7 @@ class Handler extends ExceptionHandler
             return response()->json(['User have not permission for this page access.']);
 
         }
-        
+
         return parent::render($request, $exception);
     }
 }
