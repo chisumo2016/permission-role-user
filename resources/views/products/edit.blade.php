@@ -56,7 +56,7 @@
 
             <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <div class="form-group">
+                <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
 
                     <strong>Name:</strong>
 
@@ -64,18 +64,27 @@
 
                 </div>
 
+                @if($errors->has('name'))
+                    <p class="help-block">
+                        {{ $errors->first('name') }}
+                    </p>
+                @endif
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12">
 
-                <div class="form-group">
+                <div class="form-group  {{ $errors->has('details') ? 'has-error' : '' }}">
 
                     <strong>Detail:</strong>
 
                     <textarea class="form-control" style="height:150px" name="details" placeholder="Detail">{{ $product->details }}</textarea>
 
                 </div>
-
+                @if($errors->has('details'))
+                    <p class="help-block">
+                        {{ $errors->first('details') }}
+                    </p>
+                @endif
             </div>
 
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

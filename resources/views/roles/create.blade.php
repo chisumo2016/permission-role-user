@@ -54,19 +54,23 @@
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="form-group">
+            <div class="form-group {{ $errors->has('name') ? 'has-error' : '' }}">
 
                 <strong>Name:</strong>
 
                 {!! Form::text('name', null, array('placeholder' => 'Name','class' => 'form-control')) !!}
 
             </div>
-
+            @if($errors->has('name'))
+                <p class="help-block">
+                    {{ $errors->first('name') }}
+                </p>
+            @endif
         </div>
 
         <div class="col-xs-12 col-sm-12 col-md-12">
 
-            <div class="form-group">
+            <div class="form-group   {{ $errors->has('name') ? 'has-error' : '' }}">
 
                 <strong>Permission:</strong>
 
@@ -83,6 +87,12 @@
                 @endforeach
 
             </div>
+
+            @if($errors->has('name'))
+                <p class="help-block">
+                    {{ $errors->first('name') }}
+                </p>
+            @endif
 
         </div>
 

@@ -28,17 +28,28 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group  {{ $errors->has('name') ? 'has-error' : '' }}">
                                             {!! Form::label('name','Name') !!}
                                             {!! Form::text('name',null,['class'=>'form-control', 'id' => 'name']) !!}
                                         </div>
+                                        @if($errors->has('name'))
+                                            <p class="help-block">
+                                                {{ $errors->first('name') }}
+                                            </p>
+                                        @endif
                                     </div>
 
                                     <div class="col-sm-6">
-                                        <div class="form-group">
+                                        <div class="form-group  {{ $errors->has('guard_name') ? 'has-error' : '' }}">
                                             {!! Form::label('guard_name','Guard Name') !!}
                                             {!! Form::text('guard_name',null,['class'=>'form-control', 'id' => 'guard_name']) !!}
                                         </div>
+
+                                        @if($errors->has('guard_name'))
+                                            <p class="help-block">
+                                                {{ $errors->first('guard_name') }}
+                                            </p>
+                                        @endif
                                     </div>
 
                                     </div>
