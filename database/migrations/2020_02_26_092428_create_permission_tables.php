@@ -13,8 +13,8 @@ class CreatePermissionTables extends Migration
      */
     public function up()
     {
-        $tableNames = config('permission.table_names');
-        $columnNames = config('permission.column_names');
+        $tableNames = config('permissions.table_names');
+        $columnNames = config('permissions.column_names');
 
         Schema::create($tableNames['permissions'], function (Blueprint $table) {
             $table->bigIncrements('id');
@@ -80,8 +80,8 @@ class CreatePermissionTables extends Migration
         });
 
         app('cache')
-            ->store(config('permission.cache.store') != 'default' ? config('permission.cache.store') : null)
-            ->forget(config('permission.cache.key'));
+            ->store(config('permissions.cache.store') != 'default' ? config('permissions.cache.store') : null)
+            ->forget(config('permissions.cache.key'));
     }
 
     /**
@@ -91,7 +91,7 @@ class CreatePermissionTables extends Migration
      */
     public function down()
     {
-        $tableNames = config('permission.table_names');
+        $tableNames = config('permissions.table_names');
 
         Schema::drop($tableNames['role_has_permissions']);
         Schema::drop($tableNames['model_has_roles']);

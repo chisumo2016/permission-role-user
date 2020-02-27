@@ -13,7 +13,7 @@ return [
          * `Spatie\Permission\Contracts\Permission` contract.
          */
 
-        'permission' => Spatie\Permission\Models\Permission::class,
+        'permissions' => Spatie\Permission\Models\Permission::class,
 
         /*
          * When using the "HasRoles" trait from this package, we need to know which
@@ -85,7 +85,7 @@ return [
     ],
 
     /*
-     * When set to true, the required permission/role names are added to the exception
+     * When set to true, the required permissions/role names are added to the exception
      * message. This could be considered an information leak in some contexts, so
      * the default setting is false here for optimum safety.
      */
@@ -105,10 +105,10 @@ return [
          * The cache key used to store all permissions.
          */
 
-        'key' => 'spatie.permission.cache',
+        'key' => 'spatie.permissions.cache',
 
         /*
-         * When checking for a permission against a model by passing a Permission
+         * When checking for a permissions against a model by passing a Permission
          * instance to the check, this key determines what attribute on the
          * Permissions model is used to cache against.
          *
@@ -119,7 +119,7 @@ return [
         'model_key' => 'name',
 
         /*
-         * You may optionally indicate a specific cache driver to use for permission and
+         * You may optionally indicate a specific cache driver to use for permissions and
          * role caching using any of the `store` drivers listed in the cache.php config
          * file. Using 'default' here means to use the `default` set in cache.php.
          */

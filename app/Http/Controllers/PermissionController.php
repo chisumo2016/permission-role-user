@@ -14,7 +14,9 @@ class PermissionController extends Controller
      */
     public function index()
     {
-        //
+        $permissions = Permission::all();
+        return  view('permissions.index',compact('permissions'));
+
     }
 
     /**
@@ -24,7 +26,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return  view('permissions.create');
     }
 
     /**
@@ -35,7 +37,14 @@ class PermissionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'guard_name'    => 'required',
+        ]);
+
+        Permission::create($validatedData);
+
+        return redirect()->route('permissions.index')->with('success', 'Permission was successfully created');
     }
 
     /**
@@ -57,7 +66,7 @@ class PermissionController extends Controller
      */
     public function edit(Permission $permission)
     {
-        //
+        return view('permissions.edit', compact('permission'));
     }
 
     /**
@@ -69,7 +78,14 @@ class PermissionController extends Controller
      */
     public function update(Request $request, Permission $permission)
     {
-        //
+        $validatedData = $request->validate([
+            'name'          => 'required',
+            'guard_name'    => 'required',
+        ]);
+
+        $permission->update($validatedData);
+
+        return redirect()->route('permissions.index')->with('success', 'Permission has been Updated');
     }
 
     /**
@@ -80,6 +96,8 @@ class PermissionController extends Controller
      */
     public function destroy(Permission $permission)
     {
-        //
+        $permission->delete();
+
+        return back()->with('success', 'Permission has been Deleted');
     }
 }

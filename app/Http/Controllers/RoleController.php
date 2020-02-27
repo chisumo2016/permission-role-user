@@ -13,13 +13,13 @@ class RoleController extends Controller
 
     public function __construct()
     {
-        $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
+        $this->middleware('permissions:role-list|role-create|role-edit|role-delete', ['only' => ['index','store']]);
 
-        $this->middleware('permission:role-create', ['only' => ['create','store']]);
+        $this->middleware('permissions:role-create', ['only' => ['create','store']]);
 
-        $this->middleware('permission:role-edit', ['only' => ['edit','update']]);
+        $this->middleware('permissions:role-edit', ['only' => ['edit','update']]);
 
-        $this->middleware('permission:role-delete', ['only' => ['destroy']]);
+        $this->middleware('permissions:role-delete', ['only' => ['destroy']]);
     }
 
     /**
@@ -58,7 +58,7 @@ class RoleController extends Controller
 
         $role = Role::create(['name' => $request->input('name')]);
 
-        $role->syncPermissions($request->input('permission'));
+        $role->syncPermissions($request->input('permissions'));
 
 
         return  redirect()->route('roles.index')->with('success','Role Created Successfully');
@@ -110,7 +110,7 @@ class RoleController extends Controller
     {
         /*$this->validate($request,[
             'name'       => 'required|unique:roles,name',
-            'permission' =>'required'
+            'permissions' =>'required'
         ]);*/
 
         $this->getValidate($request);
@@ -119,7 +119,7 @@ class RoleController extends Controller
         $role->name = $request->input('name');
         $role->save();
 
-        $role->syncPermissions($request->input('permission'));
+        $role->syncPermissions($request->input('permissions'));
 
         return  redirect()->route('roles.index')->with('success','Role updated Successfully');
     }
@@ -145,7 +145,7 @@ class RoleController extends Controller
     {
         $this->validate($request, [
             'name' => 'required|unique:roles',
-            'permission' => 'required'
+            'permissions' => 'required'
         ]);
     }
 }

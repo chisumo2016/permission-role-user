@@ -16,6 +16,9 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Rale:300,400,600" rel="stylesheet" type="text/css">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/js/all.min.js">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
@@ -56,6 +59,7 @@
 
                             <li><a class="nav-link" href="{{ route('users.index') }}">Manage Users</a></li>
                             <li><a class="nav-link" href="{{ route('roles.index') }}">Manage Roles</a></li>
+                            <li><a class="nav-link" href="{{ route('permissions.index') }}">Manage Permission</a></li>
                             <li><a class="nav-link" href="{{ route('products.index') }}">Manage Products</a></li>
 
                             <li class="nav-item dropdown">

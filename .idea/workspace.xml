@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="225af48e-7769-4b47-9e35-66d21131d512" name="Default Changelist" comment="" />
+    <list default="true" id="225af48e-7769-4b47-9e35-66d21131d512" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Exceptions/Handler.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Exceptions/Handler.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PermissionController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RoleController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Kernel.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Kernel.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/config/permission.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/permission.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/migrations/2020_02_26_092428_create_permission_tables.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2020_02_26_092428_create_permission_tables.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/CreateAdminUserSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/CreateAdminUserSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/roles/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/roles/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/roles/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/users/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -149,7 +166,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1582708430176</updated>
-      <workItem from="1582708434888" duration="31943000" />
+      <workItem from="1582708434888" duration="43860000" />
     </task>
     <servers />
   </component>
@@ -165,6 +182,10 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="691" y="80" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method0/0.0.1600.860@0.0.1600.860" timestamp="1582742483960" />
+    <state x="845" y="0" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1" timestamp="1582798800426">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="845" y="0" key="#com.jetbrains.php.refactoring.extractMethod.PhpExtractMethodDialog#method1/0.0.1600.860@0.0.1600.860" timestamp="1582798800426" />
     <state x="580" y="184" key="FileChooserDialogImpl" timestamp="1582746389096">
       <screen x="0" y="0" width="1600" height="860" />
     </state>
@@ -173,5 +194,9 @@
       <screen x="0" y="0" width="1600" height="860" />
     </state>
     <state x="615" y="363" key="ReplaceDuplicatesPrompt/0.0.1600.860@0.0.1600.860" timestamp="1582741399325" />
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup" timestamp="1582797755718">
+      <screen x="0" y="0" width="1600" height="860" />
+    </state>
+    <state x="463" y="180" width="672" height="678" key="search.everywhere.popup/0.0.1600.860@0.0.1600.860" timestamp="1582797755718" />
   </component>
 </project>
